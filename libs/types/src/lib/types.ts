@@ -7,4 +7,5 @@ export interface CanOutput {
 
 export enum CanDataId {
   Temperature = '329',
+  RPM = '316',
 }
