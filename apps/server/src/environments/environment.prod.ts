@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  canCommand: "candump any"
+  canCommand: './mock/canput.sh',
+  // canCommand: "candump any"
 };
