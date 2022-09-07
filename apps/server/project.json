@@ -51,6 +51,20 @@
         "jestConfig": "apps/server/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "client": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve server", "nx serve client --open"]
+      },
+      "configurations": {
+        "production": {
+          "commands": [
+            "nx serve server --configuration=production",
+            "nx serve client --configuration=production --open"
+          ]
+        }
+      }
     }
   },
   "tags": []
