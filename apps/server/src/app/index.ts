@@ -1,20 +1,27 @@
-import { CanDataId, CanOutput } from '@kater-speedo/types';
-import { canEvents, startCanReading } from './can-parser';
-import { calculateTemperature } from './calculators/temperature-calculator';
+import { CanDataId, CanOutput, SocketTopic } from '@kater-speedo/types';
 import { calculateRPM } from './calculators/rpm-calculator';
+import { calculateTemperature } from './calculators/temperature-calculator';
+import { canEvents, startCanReading } from './parsers/can';
+import { SocketServer } from './socket';
 
 export function start() {
-  let temp = 0;
-  let rpm = 0;
+  let temp: number;
+  let rpm: number;
+
+  const socketServer = SocketServer.getInstance();
 
   startCanReading();
   canEvents.on('data', (data: CanOutput) => {
     switch (data.id) {
       case CanDataId.Temperature:
-        temp = calculateTemperature(data);
+        if (Number(calculateTemperature(data).toFixed(0)) !== temp) {
+          temp = Number(calculateTemperature(data).toFixed(0));
+          socketServer.sendMessage(SocketTopic.Temperature, temp);
+        }
         break;
       case CanDataId.RPM:
-        rpm = calculateRPM(data);
+        rpm = Number(calculateRPM(data).toFixed(0));
+        socketServer.sendMessage(SocketTopic.RPM, rpm);
         break;
 
       default:
@@ -23,8 +30,8 @@ export function start() {
 
     clearLines(4);
     process.stdout.write(`===================================\n`);
-    process.stdout.write(`TEMPERATURE: ${temp.toFixed(0)}\n`);
-    process.stdout.write(`RPM:         ${rpm.toFixed(0)}\n`);
+    process.stdout.write(`TEMPERATURE: ${temp}\n`);
+    process.stdout.write(`RPM:         ${rpm}\n`);
     process.stdout.write(`===================================`);
   });
 }

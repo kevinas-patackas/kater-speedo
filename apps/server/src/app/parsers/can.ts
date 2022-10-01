@@ -1,6 +1,6 @@
 import { CanOutput } from '@kater-speedo/types';
 import { spawn } from 'child_process';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { EventEmitter } from 'events';
 
 export const canEvents = new EventEmitter();
