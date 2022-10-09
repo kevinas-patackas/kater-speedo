@@ -1,6 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { SocketTopic } from '@kater-speedo/types';
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
+import { FuelGauge } from './components/gauge/FuelGauge';
+import { RpmGauge } from './components/gauge/RpmGauge';
+import { SpeedGauge } from './components/gauge/SpeedGauge';
+import { TempGauge } from './components/gauge/TempGauge';
+import { TrimIndicator } from './components/TrimIndicator';
 
 export function App() {
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -14,24 +20,26 @@ export function App() {
     };
   }, [setSocket]);
 
-  const [temperature, setTemperature] = useState(0);
-  const [rpm, setRpm] = useState(0);
-  useEffect(() => {
-    if (socket) {
-      socket.on(SocketTopic.Temperature, (data: number) => {
-        setTemperature(data);
-      });
-
-      socket.on(SocketTopic.RPM, (data: number) => {
-        setRpm(data);
-      });
-    }
-  }, [socket]);
-
   return (
-    <div>
-      <h1>Temperatūra: {temperature}</h1>
-      <h1>RPM: {rpm}</h1>
+    <div className="flex flex-wrap justify-center h-screen items-center bg-black">
+      <div className="flex flex-wrap -mt-10">
+        <div className="relative mr-8">
+          <RpmGauge socket={socket} />
+          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+            <TempGauge socket={socket} />
+          </div>
+        </div>
+
+        <div className="relative ml-8">
+          <SpeedGauge socket={socket} />
+          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+            <FuelGauge socket={socket} />
+          </div>
+        </div>
+        <div className="ml-8">
+          <TrimIndicator socket={socket} />
+        </div>
+      </div>
     </div>
   );
 }

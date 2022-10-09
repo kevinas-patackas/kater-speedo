@@ -1,0 +1,13 @@
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'digital-clock-font';
+  src: url('assets/ProtoMono Regular.ttf');
+}
+
+@font-face {
+  font-family: 'digital-clock-font-bold';
+  src: url('assets/ProtoMono SemiBold.ttf');
+}
