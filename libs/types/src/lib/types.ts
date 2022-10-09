@@ -13,4 +13,7 @@ export enum CanDataId {
 export enum SocketTopic {
   Temperature = 'temperature',
   RPM = 'rpm',
+  Speed = 'speed',
+  Fuel = 'fuel',
+  Trim = 'trim',
 }
