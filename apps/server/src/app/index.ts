@@ -12,6 +12,7 @@ export function start() {
 
   startCanReading();
   canEvents.on('data', (data: CanOutput) => {
+    console.log('lol');
     switch (data.id) {
       case CanDataId.Temperature:
         if (Number(calculateTemperature(data).toFixed(0)) !== temp) {
