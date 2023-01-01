@@ -12,7 +12,7 @@ export function App() {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const s = io('http://192.168.1.112:3000');
+    const s = io('http://localhost:3000');
     setSocket(s);
 
     return () => {
@@ -36,7 +36,7 @@ export function App() {
             <FuelGauge socket={socket} />
           </div>
         </div>
-        <div className="ml-8">
+        <div className="w-64 ml-8 flex flex-wrap justify-center items-center">
           <TrimIndicator socket={socket} />
         </div>
       </div>

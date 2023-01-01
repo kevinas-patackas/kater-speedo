@@ -1,8 +1,9 @@
 import * as cors from 'cors';
 import * as express from 'express';
 import * as http from 'http';
-import { start } from './app';
+import { handleCanEvents } from './app/can-handler';
 import { SocketServer } from './app/socket';
+import { handleUknownEvents } from './app/unknown-handler';
 import { environment } from './environments/environment';
 
 const app = express();
@@ -14,4 +15,5 @@ httpServer.listen(environment.port, () => {
   console.log('server is running');
 });
 
-start();
+handleCanEvents();
+handleUknownEvents();
