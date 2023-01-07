@@ -1,0 +1,989 @@
+.circular-speed-container {
+  position: relative;
+  height: 35rem;
+  width: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circular-speed-ring-danger {
+  position: absolute;
+  height: 30.5rem;
+  width: 30.5rem;
+  background: conic-gradient(transparent 0% 60%, red 60% 75%, transparent 75%);
+  border-radius: 9999px;
+  rotate: -135deg;
+}
+.circular-speed-ring-outer {
+  position: absolute;
+  height: 29rem;
+  width: 29rem;
+  background: conic-gradient(white 0% 75%, transparent 75%);
+  border-radius: 9999px;
+  rotate: -135deg;
+}
+.circular-speed-ring-outer-spacer {
+  position: absolute;
+  height: 28.5rem;
+  width: 28.5rem;
+  background-color: black;
+  border-radius: 9999px;
+}
+.circular-speed-gauge-background {
+  position: absolute;
+  height: 27.5rem;
+  width: 27.5rem;
+  background: conic-gradient(#333333 0% 75%, transparent 75%);
+  border-radius: 9999px;
+  rotate: -135deg;
+}
+.circular-speed-ring-inner {
+  position: absolute;
+  height: 23.5rem;
+  width: 23.5rem;
+  background-color: black;
+  border-radius: 9999px;
+}
+.circular-speed-display-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.circular-speed-display-text-base {
+  width: 100%;
+  text-align: center;
+  font-family: digital-clock-font-bold;
+  color: white;
+}
+.circular-speed-display-text-label {
+  line-height: 1;
+  font-size: 2.25rem;
+}
+.circular-speed-display-text-value {
+  line-height: 1;
+  font-size: 8rem;
+}
+.circular-speed-segment-divider-rotate-0 {
+  rotate: -137.7deg;
+}
+.circular-speed-segment-divider-rotate-1 {
+  rotate: -135deg;
+}
+.circular-speed-segment-divider-rotate-2 {
+  rotate: -132.3deg;
+}
+.circular-speed-segment-divider-rotate-3 {
+  rotate: -129.6deg;
+}
+.circular-speed-segment-divider-rotate-4 {
+  rotate: -126.9deg;
+}
+.circular-speed-segment-divider-rotate-5 {
+  rotate: -124.2deg;
+}
+.circular-speed-segment-divider-rotate-6 {
+  rotate: -121.5deg;
+}
+.circular-speed-segment-divider-rotate-7 {
+  rotate: -118.8deg;
+}
+.circular-speed-segment-divider-rotate-8 {
+  rotate: -116.1deg;
+}
+.circular-speed-segment-divider-rotate-9 {
+  rotate: -113.4deg;
+}
+.circular-speed-segment-divider-rotate-10 {
+  rotate: -110.7deg;
+}
+.circular-speed-segment-divider-rotate-11 {
+  rotate: -108deg;
+}
+.circular-speed-segment-divider-rotate-12 {
+  rotate: -105.3deg;
+}
+.circular-speed-segment-divider-rotate-13 {
+  rotate: -102.6deg;
+}
+.circular-speed-segment-divider-rotate-14 {
+  rotate: -99.9deg;
+}
+.circular-speed-segment-divider-rotate-15 {
+  rotate: -97.19999999999999deg;
+}
+.circular-speed-segment-divider-rotate-16 {
+  rotate: -94.5deg;
+}
+.circular-speed-segment-divider-rotate-17 {
+  rotate: -91.8deg;
+}
+.circular-speed-segment-divider-rotate-18 {
+  rotate: -89.1deg;
+}
+.circular-speed-segment-divider-rotate-19 {
+  rotate: -86.4deg;
+}
+.circular-speed-segment-divider-rotate-20 {
+  rotate: -83.69999999999999deg;
+}
+.circular-speed-segment-divider-rotate-21 {
+  rotate: -81deg;
+}
+.circular-speed-segment-divider-rotate-22 {
+  rotate: -78.3deg;
+}
+.circular-speed-segment-divider-rotate-23 {
+  rotate: -75.6deg;
+}
+.circular-speed-segment-divider-rotate-24 {
+  rotate: -72.9deg;
+}
+.circular-speed-segment-divider-rotate-25 {
+  rotate: -70.19999999999999deg;
+}
+.circular-speed-segment-divider-rotate-26 {
+  rotate: -67.5deg;
+}
+.circular-speed-segment-divider-rotate-27 {
+  rotate: -64.8deg;
+}
+.circular-speed-segment-divider-rotate-28 {
+  rotate: -62.099999999999994deg;
+}
+.circular-speed-segment-divider-rotate-29 {
+  rotate: -59.39999999999999deg;
+}
+.circular-speed-segment-divider-rotate-30 {
+  rotate: -56.69999999999999deg;
+}
+.circular-speed-segment-divider-rotate-31 {
+  rotate: -54deg;
+}
+.circular-speed-segment-divider-rotate-32 {
+  rotate: -51.3deg;
+}
+.circular-speed-segment-divider-rotate-33 {
+  rotate: -48.599999999999994deg;
+}
+.circular-speed-segment-divider-rotate-34 {
+  rotate: -45.89999999999999deg;
+}
+.circular-speed-segment-divider-rotate-35 {
+  rotate: -43.19999999999999deg;
+}
+.circular-speed-segment-divider-rotate-36 {
+  rotate: -40.5deg;
+}
+.circular-speed-segment-divider-rotate-37 {
+  rotate: -37.8deg;
+}
+.circular-speed-segment-divider-rotate-38 {
+  rotate: -35.099999999999994deg;
+}
+.circular-speed-segment-divider-rotate-39 {
+  rotate: -32.39999999999999deg;
+}
+.circular-speed-segment-divider-rotate-40 {
+  rotate: -29.69999999999999deg;
+}
+.circular-speed-segment-divider-rotate-41 {
+  rotate: -27deg;
+}
+.circular-speed-segment-divider-rotate-42 {
+  rotate: -24.299999999999997deg;
+}
+.circular-speed-segment-divider-rotate-43 {
+  rotate: -21.599999999999994deg;
+}
+.circular-speed-segment-divider-rotate-44 {
+  rotate: -18.89999999999999deg;
+}
+.circular-speed-segment-divider-rotate-45 {
+  rotate: -16.19999999999999deg;
+}
+.circular-speed-segment-divider-rotate-46 {
+  rotate: -13.499999999999986deg;
+}
+.circular-speed-segment-divider-rotate-47 {
+  rotate: -10.799999999999997deg;
+}
+.circular-speed-segment-divider-rotate-48 {
+  rotate: -8.099999999999994deg;
+}
+.circular-speed-segment-divider-rotate-49 {
+  rotate: -5.399999999999977deg;
+}
+.circular-speed-segment-divider-rotate-50 {
+  rotate: -2.6999999999999886deg;
+}
+.circular-speed-segment-divider-rotate-51 {
+  rotate: 0deg;
+}
+.circular-speed-segment-divider-rotate-52 {
+  rotate: 2.700000000000017deg;
+}
+.circular-speed-segment-divider-rotate-53 {
+  rotate: 5.400000000000006deg;
+}
+.circular-speed-segment-divider-rotate-54 {
+  rotate: 8.100000000000023deg;
+}
+.circular-speed-segment-divider-rotate-55 {
+  rotate: 10.800000000000011deg;
+}
+.circular-speed-segment-divider-rotate-56 {
+  rotate: 13.5deg;
+}
+.circular-speed-segment-divider-rotate-57 {
+  rotate: 16.200000000000017deg;
+}
+.circular-speed-segment-divider-rotate-58 {
+  rotate: 18.900000000000006deg;
+}
+.circular-speed-segment-divider-rotate-59 {
+  rotate: 21.600000000000023deg;
+}
+.circular-speed-segment-divider-rotate-60 {
+  rotate: 24.30000000000001deg;
+}
+.circular-speed-segment-divider-rotate-61 {
+  rotate: 27deg;
+}
+.circular-speed-segment-divider-rotate-62 {
+  rotate: 29.700000000000017deg;
+}
+.circular-speed-segment-divider-rotate-63 {
+  rotate: 32.400000000000006deg;
+}
+.circular-speed-segment-divider-rotate-64 {
+  rotate: 35.10000000000002deg;
+}
+.circular-speed-segment-divider-rotate-65 {
+  rotate: 37.80000000000001deg;
+}
+.circular-speed-segment-divider-rotate-66 {
+  rotate: 40.5deg;
+}
+.circular-speed-segment-divider-rotate-67 {
+  rotate: 43.20000000000002deg;
+}
+.circular-speed-segment-divider-rotate-68 {
+  rotate: 45.900000000000006deg;
+}
+.circular-speed-segment-divider-rotate-69 {
+  rotate: 48.60000000000002deg;
+}
+.circular-speed-segment-divider-rotate-70 {
+  rotate: 51.30000000000001deg;
+}
+.circular-speed-segment-divider-rotate-71 {
+  rotate: 54deg;
+}
+.circular-speed-segment-divider-rotate-72 {
+  rotate: 56.70000000000002deg;
+}
+.circular-speed-segment-divider-rotate-73 {
+  rotate: 59.400000000000006deg;
+}
+.circular-speed-segment-divider-rotate-74 {
+  rotate: 62.10000000000002deg;
+}
+.circular-speed-segment-divider-rotate-75 {
+  rotate: 64.80000000000001deg;
+}
+.circular-speed-segment-divider-rotate-76 {
+  rotate: 67.5deg;
+}
+.circular-speed-segment-divider-rotate-77 {
+  rotate: 70.20000000000002deg;
+}
+.circular-speed-segment-divider-rotate-78 {
+  rotate: 72.9deg;
+}
+.circular-speed-segment-divider-rotate-79 {
+  rotate: 75.60000000000002deg;
+}
+.circular-speed-segment-divider-rotate-80 {
+  rotate: 78.30000000000001deg;
+}
+.circular-speed-segment-divider-rotate-81 {
+  rotate: 81deg;
+}
+.circular-speed-segment-divider-rotate-82 {
+  rotate: 83.70000000000002deg;
+}
+.circular-speed-segment-divider-rotate-83 {
+  rotate: 86.4deg;
+}
+.circular-speed-segment-divider-rotate-84 {
+  rotate: 89.10000000000002deg;
+}
+.circular-speed-segment-divider-rotate-85 {
+  rotate: 91.80000000000001deg;
+}
+.circular-speed-segment-divider-rotate-86 {
+  rotate: 94.50000000000003deg;
+}
+.circular-speed-segment-divider-rotate-87 {
+  rotate: 97.20000000000002deg;
+}
+.circular-speed-segment-divider-rotate-88 {
+  rotate: 99.9deg;
+}
+.circular-speed-segment-divider-rotate-89 {
+  rotate: 102.60000000000002deg;
+}
+.circular-speed-segment-divider-rotate-90 {
+  rotate: 105.30000000000001deg;
+}
+.circular-speed-segment-divider-rotate-91 {
+  rotate: 108.00000000000003deg;
+}
+.circular-speed-segment-divider-rotate-92 {
+  rotate: 110.70000000000002deg;
+}
+.circular-speed-segment-divider-rotate-93 {
+  rotate: 113.4deg;
+}
+.circular-speed-segment-divider-rotate-94 {
+  rotate: 116.10000000000002deg;
+}
+.circular-speed-segment-divider-rotate-95 {
+  rotate: 118.80000000000001deg;
+}
+.circular-speed-segment-divider-rotate-96 {
+  rotate: 121.5deg;
+}
+.circular-speed-segment-divider-rotate-97 {
+  rotate: 124.20000000000005deg;
+}
+.circular-speed-segment-divider-rotate-98 {
+  rotate: 126.90000000000003deg;
+}
+.circular-speed-segment-divider-rotate-99 {
+  rotate: 129.60000000000002deg;
+}
+.circular-speed-segment-divider-rotate-100 {
+  rotate: 132.3deg;
+}
+.circular-speed-segment-divider-rotate-101 {
+  rotate: 135deg;
+}
+.circular-speed-segment-divider-base {
+  position: absolute;
+  height: 27.5rem;
+  width: 0.15rem;
+}
+.circular-speed-segment-divider-color {
+  background-color: black;
+  height: 50%;
+  width: 100%;
+}
+.circular-speed-gauge-value-base {
+  position: absolute;
+  height: 27.5rem;
+  width: 27.5rem;
+  border-radius: 9999px;
+  rotate: -135deg;
+}
+.circular-speed-gauge-value-0 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 0%, transparent 0%);
+}
+.circular-speed-gauge-value-1 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 0.75%,
+    transparent 0.75%
+  );
+}
+.circular-speed-gauge-value-2 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 1.5%, transparent 1.5%);
+}
+.circular-speed-gauge-value-3 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 2.25%,
+    transparent 2.25%
+  );
+}
+.circular-speed-gauge-value-4 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 3%, transparent 3%);
+}
+.circular-speed-gauge-value-5 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 3.75%,
+    transparent 3.75%
+  );
+}
+.circular-speed-gauge-value-6 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 4.5%, transparent 4.5%);
+}
+.circular-speed-gauge-value-7 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 5.25%,
+    transparent 5.25%
+  );
+}
+.circular-speed-gauge-value-8 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 6%, transparent 6%);
+}
+.circular-speed-gauge-value-9 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 6.75%,
+    transparent 6.75%
+  );
+}
+.circular-speed-gauge-value-10 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 7.5%, transparent 7.5%);
+}
+.circular-speed-gauge-value-11 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 8.25%,
+    transparent 8.25%
+  );
+}
+.circular-speed-gauge-value-12 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 9%, transparent 9%);
+}
+.circular-speed-gauge-value-13 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 9.75%,
+    transparent 9.75%
+  );
+}
+.circular-speed-gauge-value-14 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 10.5%,
+    transparent 10.5%
+  );
+}
+.circular-speed-gauge-value-15 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 11.25%,
+    transparent 11.25%
+  );
+}
+.circular-speed-gauge-value-16 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 12%, transparent 12%);
+}
+.circular-speed-gauge-value-17 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 12.75%,
+    transparent 12.75%
+  );
+}
+.circular-speed-gauge-value-18 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 13.5%,
+    transparent 13.5%
+  );
+}
+.circular-speed-gauge-value-19 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 14.25%,
+    transparent 14.25%
+  );
+}
+.circular-speed-gauge-value-20 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 15%, transparent 15%);
+}
+.circular-speed-gauge-value-21 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 15.75%,
+    transparent 15.75%
+  );
+}
+.circular-speed-gauge-value-22 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 16.5%,
+    transparent 16.5%
+  );
+}
+.circular-speed-gauge-value-23 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 17.25%,
+    transparent 17.25%
+  );
+}
+.circular-speed-gauge-value-24 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 18%, transparent 18%);
+}
+.circular-speed-gauge-value-25 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 18.75%,
+    transparent 18.75%
+  );
+}
+.circular-speed-gauge-value-26 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 19.5%,
+    transparent 19.5%
+  );
+}
+.circular-speed-gauge-value-27 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 20.25%,
+    transparent 20.25%
+  );
+}
+.circular-speed-gauge-value-28 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 21%, transparent 21%);
+}
+.circular-speed-gauge-value-29 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 21.75%,
+    transparent 21.75%
+  );
+}
+.circular-speed-gauge-value-30 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 22.5%,
+    transparent 22.5%
+  );
+}
+.circular-speed-gauge-value-31 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 23.25%,
+    transparent 23.25%
+  );
+}
+.circular-speed-gauge-value-32 {
+  background: conic-gradient(transparent 0%, #00ff00 0% 24%, transparent 24%);
+}
+.circular-speed-gauge-value-33 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 24.75%,
+    transparent 24.75%
+  );
+}
+.circular-speed-gauge-value-34 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 25.5%,
+    transparent 25.5%
+  );
+}
+.circular-speed-gauge-value-35 {
+  background: conic-gradient(
+    transparent 0%,
+    #00ff00 0% 26.25%,
+    transparent 26.25%
+  );
+}
+.circular-speed-gauge-value-36 {
+  background: conic-gradient(transparent 0%, #0aff00 0% 27%, transparent 27%);
+}
+.circular-speed-gauge-value-37 {
+  background: conic-gradient(
+    transparent 0%,
+    #14ff00 0% 27.75%,
+    transparent 27.75%
+  );
+}
+.circular-speed-gauge-value-38 {
+  background: conic-gradient(
+    transparent 0%,
+    #1fff00 0% 28.5%,
+    transparent 28.5%
+  );
+}
+.circular-speed-gauge-value-39 {
+  background: conic-gradient(
+    transparent 0%,
+    #29ff00 0% 29.25%,
+    transparent 29.25%
+  );
+}
+.circular-speed-gauge-value-40 {
+  background: conic-gradient(transparent 0%, #33ff00 0% 30%, transparent 30%);
+}
+.circular-speed-gauge-value-41 {
+  background: conic-gradient(
+    transparent 0%,
+    #3dff00 0% 30.75%,
+    transparent 30.75%
+  );
+}
+.circular-speed-gauge-value-42 {
+  background: conic-gradient(
+    transparent 0%,
+    #47ff00 0% 31.5%,
+    transparent 31.5%
+  );
+}
+.circular-speed-gauge-value-43 {
+  background: conic-gradient(
+    transparent 0%,
+    #52ff00 0% 32.25%,
+    transparent 32.25%
+  );
+}
+.circular-speed-gauge-value-44 {
+  background: conic-gradient(transparent 0%, #5cff00 0% 33%, transparent 33%);
+}
+.circular-speed-gauge-value-45 {
+  background: conic-gradient(
+    transparent 0%,
+    #66ff00 0% 33.75%,
+    transparent 33.75%
+  );
+}
+.circular-speed-gauge-value-46 {
+  background: conic-gradient(
+    transparent 0%,
+    #70ff00 0% 34.5%,
+    transparent 34.5%
+  );
+}
+.circular-speed-gauge-value-47 {
+  background: conic-gradient(
+    transparent 0%,
+    #7aff00 0% 35.25%,
+    transparent 35.25%
+  );
+}
+.circular-speed-gauge-value-48 {
+  background: conic-gradient(transparent 0%, #85ff00 0% 36%, transparent 36%);
+}
+.circular-speed-gauge-value-49 {
+  background: conic-gradient(
+    transparent 0%,
+    #8fff00 0% 36.75%,
+    transparent 36.75%
+  );
+}
+.circular-speed-gauge-value-50 {
+  background: conic-gradient(
+    transparent 0%,
+    #99ff00 0% 37.5%,
+    transparent 37.5%
+  );
+}
+.circular-speed-gauge-value-51 {
+  background: conic-gradient(
+    transparent 0%,
+    #a3ff00 0% 38.25%,
+    transparent 38.25%
+  );
+}
+.circular-speed-gauge-value-52 {
+  background: conic-gradient(transparent 0%, #adff00 0% 39%, transparent 39%);
+}
+.circular-speed-gauge-value-53 {
+  background: conic-gradient(
+    transparent 0%,
+    #b8ff00 0% 39.75%,
+    transparent 39.75%
+  );
+}
+.circular-speed-gauge-value-54 {
+  background: conic-gradient(
+    transparent 0%,
+    #c2ff00 0% 40.5%,
+    transparent 40.5%
+  );
+}
+.circular-speed-gauge-value-55 {
+  background: conic-gradient(
+    transparent 0%,
+    #ccff00 0% 41.25%,
+    transparent 41.25%
+  );
+}
+.circular-speed-gauge-value-56 {
+  background: conic-gradient(transparent 0%, #d6ff00 0% 42%, transparent 42%);
+}
+.circular-speed-gauge-value-57 {
+  background: conic-gradient(
+    transparent 0%,
+    #e0ff00 0% 42.75%,
+    transparent 42.75%
+  );
+}
+.circular-speed-gauge-value-58 {
+  background: conic-gradient(
+    transparent 0%,
+    #ebff00 0% 43.5%,
+    transparent 43.5%
+  );
+}
+.circular-speed-gauge-value-59 {
+  background: conic-gradient(
+    transparent 0%,
+    #f5ff00 0% 44.25%,
+    transparent 44.25%
+  );
+}
+.circular-speed-gauge-value-60 {
+  background: conic-gradient(transparent 0%, #ffff00 0% 45%, transparent 45%);
+}
+.circular-speed-gauge-value-61 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 45.75%,
+    transparent 45.75%
+  );
+}
+.circular-speed-gauge-value-62 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 46.5%,
+    transparent 46.5%
+  );
+}
+.circular-speed-gauge-value-63 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 47.25%,
+    transparent 47.25%
+  );
+}
+.circular-speed-gauge-value-64 {
+  background: conic-gradient(transparent 0%, #ffff00 0% 48%, transparent 48%);
+}
+.circular-speed-gauge-value-65 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 48.75%,
+    transparent 48.75%
+  );
+}
+.circular-speed-gauge-value-66 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 49.5%,
+    transparent 49.5%
+  );
+}
+.circular-speed-gauge-value-67 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 50.25%,
+    transparent 50.25%
+  );
+}
+.circular-speed-gauge-value-68 {
+  background: conic-gradient(transparent 0%, #ffff00 0% 51%, transparent 51%);
+}
+.circular-speed-gauge-value-69 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 51.75%,
+    transparent 51.75%
+  );
+}
+.circular-speed-gauge-value-70 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffff00 0% 52.5%,
+    transparent 52.5%
+  );
+}
+.circular-speed-gauge-value-71 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffe600 0% 53.25%,
+    transparent 53.25%
+  );
+}
+.circular-speed-gauge-value-72 {
+  background: conic-gradient(transparent 0%, #ffcc00 0% 54%, transparent 54%);
+}
+.circular-speed-gauge-value-73 {
+  background: conic-gradient(
+    transparent 0%,
+    #ffb300 0% 54.75%,
+    transparent 54.75%
+  );
+}
+.circular-speed-gauge-value-74 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff9900 0% 55.5%,
+    transparent 55.5%
+  );
+}
+.circular-speed-gauge-value-75 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff8000 0% 56.25%,
+    transparent 56.25%
+  );
+}
+.circular-speed-gauge-value-76 {
+  background: conic-gradient(transparent 0%, #ff6600 0% 57%, transparent 57%);
+}
+.circular-speed-gauge-value-77 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff4d00 0% 57.75%,
+    transparent 57.75%
+  );
+}
+.circular-speed-gauge-value-78 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff3300 0% 58.5%,
+    transparent 58.5%
+  );
+}
+.circular-speed-gauge-value-79 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff1a00 0% 59.25%,
+    transparent 59.25%
+  );
+}
+.circular-speed-gauge-value-80 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 60%, transparent 60%);
+}
+.circular-speed-gauge-value-81 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 60.75%,
+    transparent 60.75%
+  );
+}
+.circular-speed-gauge-value-82 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 61.5%,
+    transparent 61.5%
+  );
+}
+.circular-speed-gauge-value-83 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 62.25%,
+    transparent 62.25%
+  );
+}
+.circular-speed-gauge-value-84 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 63%, transparent 63%);
+}
+.circular-speed-gauge-value-85 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 63.75%,
+    transparent 63.75%
+  );
+}
+.circular-speed-gauge-value-86 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 64.5%,
+    transparent 64.5%
+  );
+}
+.circular-speed-gauge-value-87 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 65.25%,
+    transparent 65.25%
+  );
+}
+.circular-speed-gauge-value-88 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 66%, transparent 66%);
+}
+.circular-speed-gauge-value-89 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 66.75%,
+    transparent 66.75%
+  );
+}
+.circular-speed-gauge-value-90 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 67.5%,
+    transparent 67.5%
+  );
+}
+.circular-speed-gauge-value-91 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 68.25%,
+    transparent 68.25%
+  );
+}
+.circular-speed-gauge-value-92 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 69%, transparent 69%);
+}
+.circular-speed-gauge-value-93 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 69.75%,
+    transparent 69.75%
+  );
+}
+.circular-speed-gauge-value-94 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 70.5%,
+    transparent 70.5%
+  );
+}
+.circular-speed-gauge-value-95 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 71.25%,
+    transparent 71.25%
+  );
+}
+.circular-speed-gauge-value-96 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 72%, transparent 72%);
+}
+.circular-speed-gauge-value-97 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 72.75%,
+    transparent 72.75%
+  );
+}
+.circular-speed-gauge-value-98 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 73.5%,
+    transparent 73.5%
+  );
+}
+.circular-speed-gauge-value-99 {
+  background: conic-gradient(
+    transparent 0%,
+    #ff0000 0% 74.25%,
+    transparent 74.25%
+  );
+}
+.circular-speed-gauge-value-100 {
+  background: conic-gradient(transparent 0%, #ff0000 0% 75%, transparent 75%);
+}
+.circular-speed-gauge-value-min {
+  background: conic-gradient(transparent 0%, #00ff00 0% 0%, transparent 75%);
+}
+.circular-speed-gauge-value-max {
+  background: conic-gradient(transparent 0%, #ff0000 0% 75%, transparent 75%);
+}

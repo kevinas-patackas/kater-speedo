@@ -2,7 +2,11 @@
 import { SocketTopic } from '@kater-speedo/types';
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
+import { CircularGauge } from './components/CircularGauge/CircularGauge';
 import { FuelGauge } from './components/gauge/FuelGauge';
+import { NewFuelGauge } from './components/gauge/newFuelGauge';
+import { NewSpeedGauge } from './components/gauge/newSpeedGauge';
+import { NewTempGauge } from './components/gauge/newTempGauge';
 import { RpmGauge } from './components/gauge/RpmGauge';
 import { SpeedGauge } from './components/gauge/SpeedGauge';
 import { TempGauge } from './components/gauge/TempGauge';
@@ -21,25 +25,21 @@ export function App() {
   }, [setSocket]);
 
   return (
-    <div className="flex flex-wrap justify-center h-screen items-center bg-black">
-      <div className="flex flex-wrap -mt-10">
-        <div className="relative mr-8">
-          <RpmGauge socket={socket} />
-          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-            <TempGauge socket={socket} />
-          </div>
-        </div>
-
-        <div className="relative ml-8">
-          <SpeedGauge socket={socket} />
-          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-            <FuelGauge socket={socket} />
-          </div>
-        </div>
-        <div className="w-64 ml-8 flex flex-wrap justify-center items-center">
-          <TrimIndicator socket={socket} />
-        </div>
+    <div className="flex flex-wrap justify-center h-screen items-center bg-black overflow-hidden">
+      <div className="flex flex-col justify-center items-center">
+        <CircularGauge socket={socket} topic={SocketTopic.Speed} />
+        {/* <NewSpeedGauge socket={socket} />
+        <div className="-mt-[10rem] z-50">
+          <NewTempGauge socket={socket} />
+        </div> */}
       </div>
+      {/* <div className="w-[5rem]"></div>
+      <div className="flex flex-col justify-center items-center">
+        <NewSpeedGauge socket={socket} />
+        <div className="-mt-[10rem] z-50">
+          <NewFuelGauge socket={socket} />
+        </div>
+      </div> */}
     </div>
   );
 }
