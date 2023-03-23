@@ -1,5 +1,3 @@
-
-
 # KaterSpeedo
 
 This project was generated using [Nx](https://nx.dev).
@@ -79,8 +77,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
@@ -92,3 +88,45 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+# .ENV
+
+```
+PYTHON_PATH="..." #"/opt/homebrew/opt/python@3.10/bin/python3.10"
+```
+
+# Setup
+
+Steps:
+
+1. NodeJS
+2. CAN reading
+3. I2C ADS reading
+
+## 1. NodeJS setup
+
+TBD
+
+## 2. CAN reading
+
+TBD
+
+## 3. I2C ADS reading
+
+Installation on _Raspberry pi_:
+
+```
+sudo apt-get update
+sudo apt-get install build-essential python-dev python3-smbus python-pip
+sudo pip install adafruit-ads1x15
+```
+
+Then we need to know path to python3 executable. Without knowing the path, nodeJs fails to handle python scripts correctly. To find, run:
+
+```
+python3
+import sys
+print(sys.executable)
+```
+
+Save the output, it is used in **ENV variable:** `PYTHON_PATH`

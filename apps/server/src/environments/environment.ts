@@ -1,5 +1,7 @@
 export const environment = {
   production: false,
-  canCommand: './mock/candump.sh',
+  scriptsPath: './shell-scripts/mock/',
+  canScript: 'candump.sh',
+  gpsdScript: 'gpsd.py',
   port: 3000,
 };

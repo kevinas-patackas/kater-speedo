@@ -6,7 +6,7 @@ import { EventEmitter } from 'events';
 export const canEvents = new EventEmitter();
 
 export function startCanReading() {
-  const ls = spawn(environment.canCommand);
+  const ls = spawn(`${environment.scriptsPath}${environment.canScript}`);
 
   ls.stdout.on('data', (data) => {
     const line = JSON.parse(JSON.stringify(String(data)).replace('\\n', ''));

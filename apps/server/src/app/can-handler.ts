@@ -1,6 +1,4 @@
 import { CanDataId, CanOutput, SocketTopic } from '@kater-speedo/types';
-import { calculateRPM } from './calculators/rpm-calculator';
-import { calculateTemperature } from './calculators/temperature-calculator';
 import { canEvents, startCanReading } from './parsers/can';
 import { SocketServer } from './socket';
 import { NoiseReducer } from './utils/noise-reducer';
@@ -43,3 +41,9 @@ export function handleCanEvents() {
     }
   });
 }
+
+const calculateRPM = (data: CanOutput) =>
+  parseInt(`${data.bytes[3]}${data.bytes[2]}`, 16) / 6.4;
+
+const calculateTemperature = (data: CanOutput) =>
+  0.75 * parseInt(data.bytes[1], 16) - 48.373;

@@ -10,10 +10,22 @@ export enum CanDataId {
   RPM = '316',
 }
 
+export interface GpsdOutput {
+  topic: string;
+  value: string;
+}
+
+export enum GpsdDataId {
+  Speed = 'speed',
+  Heading = 'heading',
+}
+
 export enum SocketTopic {
   Temperature = 'temperature',
   RPM = 'rpm',
   Speed = 'speed',
   Fuel = 'fuel',
   Trim = 'trim',
+  Voltage = 'voltage',
+  OilPressure = 'oil-pressure',
 }
