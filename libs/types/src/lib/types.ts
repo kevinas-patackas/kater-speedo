@@ -29,3 +29,7 @@ export enum SocketTopic {
   Voltage = 'voltage',
   OilPressure = 'oil-pressure',
 }
+
+export enum TechnicalSocketTopic {
+  ConfigChanged = 'config-changed',
+}

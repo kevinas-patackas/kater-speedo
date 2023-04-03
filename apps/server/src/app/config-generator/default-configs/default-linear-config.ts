@@ -1,5 +1,4 @@
 import {
-  CircularGaugeConfig,
   GaugesConfig,
   LinearGaugeConfig,
   SocketTopic,

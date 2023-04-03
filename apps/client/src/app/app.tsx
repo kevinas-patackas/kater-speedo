@@ -1,13 +1,34 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { GaugesConfig } from '@kater-speedo/types';
+import { GaugesConfig, TechnicalSocketTopic } from '@kater-speedo/types';
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
 import { CircularGauge } from './components/CircularGauge';
 import { LinearGauge } from './components/LinearGauge';
 
+const refreshStyles = () => {
+  const stylesElementId = `kater-gauges-styles`;
+  const existing = document.getElementById(stylesElementId);
+  if (existing) {
+    existing.remove();
+  }
+
+  const headElement = document.getElementsByTagName('head')[0];
+  const newLinkElement = document.createElement('link');
+  newLinkElement.id = stylesElementId;
+  newLinkElement.rel = 'stylesheet';
+  newLinkElement.type = 'text/css';
+  newLinkElement.href = `http://localhost:3000/static/gauges-styles.css`;
+
+  headElement.appendChild(newLinkElement);
+};
+
 export function App() {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [gaugesConfig, setGaugesConfig] = useState<GaugesConfig | null>(null);
+
+  useEffect(() => {
+    refreshStyles();
+  }, []);
 
   useEffect(() => {
     const s = io('http://localhost:3000');
@@ -21,6 +42,17 @@ export function App() {
       s.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    if (socket) {
+      socket.on(TechnicalSocketTopic.ConfigChanged, () => {
+        refreshStyles();
+        fetch('http://localhost:3000/static/config.json')
+          .then((response) => response.json())
+          .then((data) => setGaugesConfig(data));
+      });
+    }
+  }, [socket]);
 
   return (
     <div className="flex flex-wrap justify-center h-screen items-center bg-black overflow-hidden">
