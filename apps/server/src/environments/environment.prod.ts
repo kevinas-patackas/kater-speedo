@@ -3,5 +3,6 @@ export const environment = {
   scriptsPath: './shell-scripts/real/',
   canScript: 'candump.sh',
   gpsdScript: 'gpsd.py',
+  adcScript: 'adc.py',
   port: 3000,
 };

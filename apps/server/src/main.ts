@@ -10,9 +10,9 @@ import {
 import { generateCss } from './app/css-generator';
 import { handleGpsdEvents } from './app/gpsd-handler';
 import { SocketServer } from './app/socket';
-import { handleUknownEvents } from './app/unknown-handler';
 import { environment } from './environments/environment';
 import path = require('path');
+import { handleAdcEvents } from './app/adc-handler';
 
 const app = express();
 app.use(cors());
@@ -32,7 +32,7 @@ generateCss(gaugesConfig);
 
 handleCanEvents();
 handleGpsdEvents();
-handleUknownEvents();
+handleAdcEvents();
 
 app.get('/config/set/:presetName', (req, res) => {
   const presetName = req.params.presetName;
