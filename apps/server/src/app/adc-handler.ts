@@ -49,7 +49,6 @@ function startAdcReading(topic: SocketTopic) {
   const pyshell = new PythonShell(environment.adcScript, options);
 
   pyshell.on('message', function (data) {
-    console.log('data', data);
     const line = JSON.parse(JSON.stringify(String(data)).replace('\\n', ''));
     adcEventEmitter.emit('data', line);
   });
@@ -61,7 +60,7 @@ function getConfigByTopic(topic: SocketTopic): AdcConfig {
   const configPath = path.join(adcConfigsPath, `${topic}.json`);
 
   if (!fileExists(configPath)) {
-    const defaultConfig = getDefaultAdcConfig(); // TODO
+    const defaultConfig = getDefaultAdcConfig();
     fs.writeFileSync(configPath, JSON.stringify(defaultConfig, null, 2));
   }
 

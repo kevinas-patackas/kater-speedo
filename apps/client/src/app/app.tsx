@@ -2,8 +2,11 @@
 import { GaugesConfig, TechnicalSocketTopic } from '@kater-speedo/types';
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
+import { CircularCompass } from './components/CircularCompass';
 import { CircularGauge } from './components/CircularGauge';
 import { LinearGauge } from './components/LinearGauge';
+import { SimpleCompass } from './components/SimpleCompass';
+import { SimpleText } from './components/SimpleText';
 
 const refreshStyles = () => {
   const stylesElementId = `kater-gauges-styles`;
@@ -26,8 +29,17 @@ export function App() {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [gaugesConfig, setGaugesConfig] = useState<GaugesConfig | null>(null);
 
+  // const [heading, setHeading] = useState(0);
+
   useEffect(() => {
     refreshStyles();
+
+    // const timerId = setInterval(() => {
+    //   setHeading((prevHeading) => (prevHeading === 360 ? 0 : prevHeading + 1));
+    // }, 100);
+    // return function cleanup() {
+    //   clearInterval(timerId);
+    // };
   }, []);
 
   useEffect(() => {
@@ -56,6 +68,18 @@ export function App() {
 
   return (
     <div className="flex flex-wrap justify-center h-screen items-center bg-black overflow-hidden">
+      {/* <div style={{ position: 'absolute' }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-245px',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <CircularCompass heading={heading} />
+        </div>
+      </div> */}
+
       {gaugesConfig?.gauges.map((gauge, index) => (
         <div style={{ position: 'absolute' }} key={index}>
           <div
@@ -97,6 +121,32 @@ export function App() {
           </div>
         </div>
       ))}
+
+      {/* <div style={{ position: 'absolute' }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-317px',
+            left: '737px',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <SimpleText text={'16:20'} align="end" />
+        </div>
+      </div>
+
+      <div style={{ position: 'absolute' }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-317px',
+            left: '-737px',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <SimpleText text={'69420'} postfix="km" align="start" />
+        </div>
+      </div> */}
     </div>
   );
 }

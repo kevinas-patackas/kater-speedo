@@ -4,6 +4,7 @@ import * as path from 'path';
 import { generateCss } from '../css-generator';
 import { SocketServer } from '../socket';
 import { getDefaultAltConfig } from './default-configs/default-alt-config';
+import { getDefaultBigConfig } from './default-configs/default-big-config';
 import { getDefaultConfig } from './default-configs/default-config';
 import { getLinearConfig } from './default-configs/default-linear-config';
 import { getDefaultModernAltConfig } from './default-configs/default-modern-alt-config';
@@ -55,6 +56,7 @@ export function createGaugesConfigPresets() {
     getDefaultModernAltConfig(),
     getDefaultModernConfig(),
     getLinearConfig(),
+    getDefaultBigConfig(),
   ];
 
   if (!fileExists(presetsPath)) {
