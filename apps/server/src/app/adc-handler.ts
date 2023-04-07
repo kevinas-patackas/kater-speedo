@@ -83,6 +83,10 @@ function getDefaultAdcConfig(): AdcConfig {
     sleepTime: 1,
     activeSleepTime: 0.1,
     deviation: 100,
+    adcAddress: '0x48',
+    channel: 0,
+    busnum: 1,
+    gain: 1,
     valueRangeMap: {
       limitToMinMax: true,
       min: {
