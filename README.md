@@ -130,3 +130,20 @@ print(sys.executable)
 ```
 
 Save the output, it is used in **ENV variable:** `PYTHON_PATH`
+
+# DONE
+
+```
+kevinas.patackas projects > cp -R kater-speedo/dist/apps/client kater-speedo-build
+kevinas.patackas projects > cp -R kater-speedo/dist/apps/server kater-speedo-build
+kevinas.patackas projects > cp kater-speedo/package* kater-speedo-build
+kevinas.patackas projects > cp kater-speedo/package* kater-speedo-build
+kevinas.patackas projects > cp -R kater-speedo/shell-scripts kater-speedo-build
+
+sudo systemctl enable gpsd.socket
+sudo systemctl start gpsd.socket
+
+
+chromium-browser --start-fullscreen http://localhost:4200
+
+```

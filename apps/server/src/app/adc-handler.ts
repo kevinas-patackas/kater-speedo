@@ -5,31 +5,22 @@ import { environment } from '../environments/environment';
 import * as fs from 'fs';
 import * as path from 'path';
 import { SocketServer } from './socket';
+import { prettyPrintPythonError, sleep, stringToBoolean } from './utils/utils';
 
 const configRootPath = path.join(__dirname, 'assets');
 const adcConfigsPath = path.join(configRootPath, 'adc');
 
-export function handleAdcEvents() {
-  const socketServer = SocketServer.getInstance();
-
+export function initAdcPath() {
   if (!fileExists(adcConfigsPath)) {
     fs.mkdirSync(adcConfigsPath);
   }
+}
 
-  startAdcReading(SocketTopic.Trim).on('data', (data: string) => {
-    socketServer.sendMessage(SocketTopic.Trim, Number(data));
-  });
+export function handleAdcEvents(topic: SocketTopic) {
+  const socketServer = SocketServer.getInstance();
 
-  startAdcReading(SocketTopic.Fuel).on('data', (data: string) => {
-    socketServer.sendMessage(SocketTopic.Fuel, Number(data));
-  });
-
-  startAdcReading(SocketTopic.Voltage).on('data', (data: string) => {
-    socketServer.sendMessage(SocketTopic.Voltage, Number(data));
-  });
-
-  startAdcReading(SocketTopic.OilPressure).on('data', (data: string) => {
-    socketServer.sendMessage(SocketTopic.OilPressure, Number(data));
+  startAdcReading(topic).on('data', (data: string) => {
+    socketServer.sendMessage(topic, Number(data));
   });
 }
 
@@ -46,12 +37,46 @@ function startAdcReading(topic: SocketTopic) {
     args: [JSON.stringify(adcConfig)],
   };
 
+  const shouldLog =
+    stringToBoolean(
+      process.env[`LOG_${topic}`.toUpperCase().split('-').join('_')]
+    ) || stringToBoolean(process.env['LOG_ALL']);
   const pyshell = new PythonShell(environment.adcScript, options);
 
-  pyshell.on('message', function (data) {
-    const line = JSON.parse(JSON.stringify(String(data)).replace('\\n', ''));
-    adcEventEmitter.emit('data', line);
-  });
+  pyshell
+    .on('message', function (data) {
+      const line = JSON.parse(JSON.stringify(String(data)).replace('\\n', ''));
+      if (shouldLog) {
+        console.log(`${topic}:`.padEnd(15, ' '), line);
+      }
+      adcEventEmitter.emit('data', line);
+    })
+    .on('pythonError', function (data) {
+      if (shouldLog) {
+        prettyPrintPythonError(`${topic} pythonError`, data);
+      }
+    })
+    .on('stderr', function (data) {
+      if (shouldLog) {
+        prettyPrintPythonError(`${topic} stderr`, data);
+      }
+    })
+    .on('error', function (data) {
+      if (shouldLog) {
+        prettyPrintPythonError(`${topic} error`, data);
+      }
+    })
+    .on('close', async function (data) {
+      if (shouldLog) {
+        prettyPrintPythonError(`${topic} close`, data);
+      }
+      console.log(
+        `Will restart ${topic} in: 2s`,
+        process.env['LOG_oil-pressure']
+      );
+      await sleep(2000);
+      startAdcReading(topic);
+    });
 
   return adcEventEmitter;
 }

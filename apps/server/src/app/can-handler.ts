@@ -2,6 +2,7 @@ import { CanDataId, CanOutput, SocketTopic } from '@kater-speedo/types';
 import { canEvents, startCanReading } from './parsers/can';
 import { SocketServer } from './socket';
 import { NoiseReducer } from './utils/noise-reducer';
+import { stringToBoolean } from './utils/utils';
 
 export function handleCanEvents() {
   const socketServer = SocketServer.getInstance();
@@ -23,14 +24,36 @@ export function handleCanEvents() {
     socketServer.sendMessage(SocketTopic.RPM, value);
   });
 
+  const shouldLogTemp =
+    stringToBoolean(
+      process.env[`LOG_TEMPERATURE`.toUpperCase().split('-').join('_')]
+    ) || stringToBoolean(process.env['LOG_ALL']);
+
+  const shouldLogRpm =
+    stringToBoolean(
+      process.env[`LOG_RPM`.toUpperCase().split('-').join('_')]
+    ) || stringToBoolean(process.env['LOG_ALL']);
+
   startCanReading();
   canEvents.on('data', (data: CanOutput) => {
     switch (data.id) {
       case CanDataId.RPM:
+        if (shouldLogRpm) {
+          console.log(
+            `RPM:`.padEnd(15, ' '),
+            Number(calculateRPM(data).toFixed(0))
+          );
+        }
         rpmNoiseReducer.next(Number(calculateRPM(data).toFixed(0)));
         break;
 
       case CanDataId.Temperature:
+        if (shouldLogTemp) {
+          console.log(
+            `TEMPERATURE:`.padEnd(15, ' '),
+            calculateTemperature(data).toFixed(0)
+          );
+        }
         temperatureNoiseReducer.next(
           Number(calculateTemperature(data).toFixed(0))
         );

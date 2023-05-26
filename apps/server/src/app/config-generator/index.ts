@@ -9,6 +9,7 @@ import { getDefaultConfig } from './default-configs/default-config';
 import { getLinearConfig } from './default-configs/default-linear-config';
 import { getDefaultModernAltConfig } from './default-configs/default-modern-alt-config';
 import { getDefaultModernConfig } from './default-configs/default-modern-config';
+import { getDefaultAltBigConfig } from './default-configs/default-alt-big-config';
 
 const configRootPath = path.join(__dirname, 'assets');
 const presetsPath = path.join(configRootPath, 'presets');
@@ -57,6 +58,7 @@ export function createGaugesConfigPresets() {
     getDefaultModernConfig(),
     getLinearConfig(),
     getDefaultBigConfig(),
+    getDefaultAltBigConfig(),
   ];
 
   if (!fileExists(presetsPath)) {

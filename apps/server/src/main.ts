@@ -12,7 +12,8 @@ import { handleGpsdEvents } from './app/gpsd-handler';
 import { SocketServer } from './app/socket';
 import { environment } from './environments/environment';
 import path = require('path');
-import { handleAdcEvents } from './app/adc-handler';
+import { handleAdcEvents, initAdcPath } from './app/adc-handler';
+import { SocketTopic } from '@kater-speedo/types';
 
 const app = express();
 app.use(cors());
@@ -32,7 +33,12 @@ generateCss(gaugesConfig);
 
 handleCanEvents();
 handleGpsdEvents();
-handleAdcEvents();
+
+initAdcPath();
+handleAdcEvents(SocketTopic.Trim);
+handleAdcEvents(SocketTopic.Fuel);
+handleAdcEvents(SocketTopic.Voltage);
+handleAdcEvents(SocketTopic.OilPressure);
 
 app.get('/config/set/:presetName', (req, res) => {
   const presetName = req.params.presetName;
