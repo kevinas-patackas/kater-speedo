@@ -54,8 +54,12 @@ export function handleCanEvents() {
             calculateTemperature(data).toFixed(0)
           );
         }
-        temperatureNoiseReducer.next(
-          Number(calculateTemperature(data).toFixed(0))
+        // temperatureNoiseReducer.next(
+        // Number(calculateTemperature(data).toFixed(0))
+        // );
+        socketServer.sendMessage(
+          SocketTopic.Temperature,
+          calculateTemperature(data).toFixed(0)
         );
         break;
 

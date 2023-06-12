@@ -2,6 +2,7 @@ import {
   CircularGaugeConfig,
   GaugesConfig,
   LinearGaugeConfig,
+  SimpleTextConfig,
   SocketTopic,
 } from '@kater-speedo/types';
 
@@ -69,6 +70,17 @@ export function getDefaultAltBigConfig(): GaugesConfig {
           rotation: 0,
           x: 0,
           y: 230,
+        },
+      },
+      {
+        topic: SocketTopic.Time,
+        config: timeSetup,
+        position: {
+          rotation: 0,
+          x: 0,
+          // x: -834,
+          y: -315,
+          // y: 0,
         },
       },
     ],
@@ -340,13 +352,8 @@ const tempSetup: CircularGaugeConfig = {
     ranges: [
       {
         min: 0,
-        max: 90,
-        color: '#7DD3FC',
-      },
-      {
-        min: 92,
         max: 93,
-        color: '#E879F9',
+        color: '#7DD3FC',
       },
       {
         min: 94,
@@ -446,15 +453,15 @@ const voltageSetup: CircularGaugeConfig = {
     danger: 12,
     outline: 6,
     outlineSpacer: 16,
-    tick: 100,
-    segmentDivider: 8,
+    tick: 55,
+    segmentDivider: 6,
     label: 25,
     value: 65,
     digits: 0,
   },
   display: {
     segments: {
-      count: 32,
+      count: 40,
       rounding: 1,
     },
     digits: {
@@ -466,24 +473,25 @@ const voltageSetup: CircularGaugeConfig = {
       label: '&nbsp;',
       subLabel: 'VOLT',
       roundingDown: 1,
+      toFixed: 1,
     },
   },
   colors: {
     gaugeBackground: '#333333',
   },
   values: {
-    min: 10,
-    max: 18,
+    min: 4,
+    max: 24,
     ranges: [
       {
-        min: 10,
-        max: 12,
+        min: 4,
+        max: 8,
         color: '#ff0000',
         danger: true,
       },
       {
-        min: 12,
-        max: 13,
+        min: 9,
+        max: 10,
         color: '#E879F9',
       },
       {
@@ -492,13 +500,13 @@ const voltageSetup: CircularGaugeConfig = {
         color: '#7DD3FC',
       },
       {
-        min: 15,
-        max: 16,
+        min: 18,
+        max: 19,
         color: '#E879F9',
       },
       {
-        min: 16,
-        max: 18,
+        min: 20,
+        max: 24,
         color: '#ff0000',
         danger: true,
       },
@@ -587,5 +595,22 @@ const oilPressureSetup: CircularGaugeConfig = {
         danger: true,
       },
     ],
+  },
+};
+
+const timeSetup: SimpleTextConfig = {
+  type: 'simple-text',
+  sizes: {
+    width: 220,
+    height: 70,
+    size: 65,
+    prefixSize: 20,
+    postfixSize: 20,
+  },
+  display: {
+    horizontalAlign: 'center',
+    prefix: '',
+    postfix: '',
+    initialValue: '--:--',
   },
 };

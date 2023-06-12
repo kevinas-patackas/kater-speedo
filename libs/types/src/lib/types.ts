@@ -28,6 +28,7 @@ export enum SocketTopic {
   Trim = 'trim',
   Voltage = 'voltage',
   OilPressure = 'oil-pressure',
+  Time = 'time',
 }
 
 export enum TechnicalSocketTopic {

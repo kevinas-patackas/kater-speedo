@@ -14,6 +14,7 @@ import { environment } from './environments/environment';
 import path = require('path');
 import { handleAdcEvents, initAdcPath } from './app/adc-handler';
 import { SocketTopic } from '@kater-speedo/types';
+import { handleTimeEvents } from './app/time-handler';
 
 const app = express();
 app.use(cors());
@@ -39,6 +40,7 @@ handleAdcEvents(SocketTopic.Trim);
 handleAdcEvents(SocketTopic.Fuel);
 handleAdcEvents(SocketTopic.Voltage);
 handleAdcEvents(SocketTopic.OilPressure);
+handleTimeEvents();
 
 app.get('/config/set/:presetName', (req, res) => {
   const presetName = req.params.presetName;

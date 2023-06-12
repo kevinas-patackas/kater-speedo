@@ -1,30 +1,39 @@
+import { SimpleTextConfig, SocketTopic } from '@kater-speedo/types';
+import { useEffect, useState } from 'react';
+import { Socket } from 'socket.io-client';
+
 export function SimpleText({
-  text,
-  postfix,
-  align,
+  socket,
+  topic,
+  config,
 }: {
-  text: string;
-  postfix?: string;
-  align: string;
+  socket: Socket | null;
+  topic: SocketTopic;
+  config: SimpleTextConfig;
 }) {
+  const [value, setValue] = useState<unknown>(
+    config.display.initialValue ?? ''
+  );
+
+  useEffect(() => {
+    if (socket) {
+      socket.on(topic, (data: unknown) => {
+        setValue(data);
+      });
+    }
+  }, [socket, topic]);
+
   return (
-    <div
-      style={{
-        width: '400px',
-        display: 'flex',
-        justifyContent: align,
-        position: 'absolute',
-        transform: 'translate(-50%, -50%)',
-        left: '50%',
-        top: '50%',
-        color: 'white',
-        lineHeight: '1',
-        fontFamily: 'digital-clock-font-bold',
-        fontSize: '30px',
-      }}
-    >
-      {text}
-      <span style={{ fontSize: '15px', marginTop: '14px' }}>{postfix}</span>
+    <div className={`${config.type}-${topic}-container`}>
+      <div className={`${config.type}-${topic}-display-prefix`}>
+        {config.display.prefix}
+      </div>
+      <div className={`${config.type}-${topic}-display-value`}>
+        {String(value)}
+      </div>
+      <div className={`${config.type}-${topic}-display-postfix`}>
+        {config.display.postfix}
+      </div>
     </div>
   );
 }

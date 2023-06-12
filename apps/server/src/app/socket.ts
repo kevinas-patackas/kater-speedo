@@ -1,5 +1,6 @@
 import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
+import { emitTimeEvent } from './time-handler';
 
 export class SocketServer {
   private socket: Server;

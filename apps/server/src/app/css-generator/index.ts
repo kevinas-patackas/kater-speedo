@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { generateCircularGaugeCssClasses } from './circular-generator';
 import { generateLinearGaugeCssClasses } from './linear-generator';
+import { generateSimpleTextCssClasses } from './simple-text-generator';
 
 export function generateCss(config: GaugesConfig) {
   const configRootPath = path.join(__dirname, 'assets');
@@ -23,6 +24,12 @@ export function generateCss(config: GaugesConfig) {
       case 'linear-vertical':
         cssStrings.push(
           generateLinearGaugeCssClasses(gauge.topic, gauge.config)
+        );
+        break;
+
+      case 'simple-text':
+        cssStrings.push(
+          generateSimpleTextCssClasses(gauge.topic, gauge.config)
         );
         break;
 

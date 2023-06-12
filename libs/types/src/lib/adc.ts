@@ -7,6 +7,7 @@ export interface AdcConfig {
   deviation?: number;
   busnum?: number;
   gain?: number;
+  roundTo?: number;
 }
 
 export interface AdcValueRangeMap {

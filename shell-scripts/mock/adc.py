@@ -12,6 +12,7 @@ adc_args = json.loads(args.args)
 range_map = adc_args['valueRangeMap']
 sleep_time = adc_args.get('sleepTime', 0.5)
 active_sleep_time = adc_args.get('activeSleepTime', 0.03)
+round_to = adc_args.get('roundTo', 0)
 
 min_value = range_map['min']['value']
 max_value = range_map['max']['value']
@@ -69,7 +70,7 @@ while True:
         sleep_time = adc_args.get('sleepTime', 0.5)
 
     # print the raw value
-    print(value)
+    print(round(value, round_to))
 
     # update the previous value
     prev_value = value

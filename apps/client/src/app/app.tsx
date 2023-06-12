@@ -29,17 +29,8 @@ export function App() {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [gaugesConfig, setGaugesConfig] = useState<GaugesConfig | null>(null);
 
-  // const [heading, setHeading] = useState(0);
-
   useEffect(() => {
     refreshStyles();
-
-    // const timerId = setInterval(() => {
-    //   setHeading((prevHeading) => (prevHeading === 360 ? 0 : prevHeading + 1));
-    // }, 100);
-    // return function cleanup() {
-    //   clearInterval(timerId);
-    // };
   }, []);
 
   useEffect(() => {
@@ -112,6 +103,14 @@ export function App() {
                         config={gauge.config}
                       />
                     );
+                  case 'simple-text':
+                    return (
+                      <SimpleText
+                        socket={socket}
+                        topic={gauge.topic}
+                        config={gauge.config}
+                      />
+                    );
 
                   default:
                     return <div />;
@@ -121,32 +120,6 @@ export function App() {
           </div>
         </div>
       ))}
-
-      {/* <div style={{ position: 'absolute' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: '-317px',
-            left: '737px',
-            transform: 'translate(-50%, -50%)',
-          }}
-        >
-          <SimpleText text={'16:20'} align="end" />
-        </div>
-      </div>
-
-      <div style={{ position: 'absolute' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: '-317px',
-            left: '-737px',
-            transform: 'translate(-50%, -50%)',
-          }}
-        >
-          <SimpleText text={'69420'} postfix="km" align="start" />
-        </div>
-      </div> */}
     </div>
   );
 }

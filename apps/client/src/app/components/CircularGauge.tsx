@@ -79,6 +79,10 @@ function Display({
     }
   }, [socket, topic]);
 
+  const fixedValue = Number(
+    value / config.display.display.roundingDown
+  ).toFixed(config.display.display.toFixed ?? 0);
+
   return (
     <div className={`${config.type}-${topic}-display-container`}>
       <div
@@ -88,7 +92,23 @@ function Display({
       <div
         className={`${config.type}-${topic}-display-text-base ${config.type}-${topic}-display-text-value`}
       >
-        {Number(value / config.display.display.roundingDown).toFixed(0)}
+        {}
+        {!config.display.display.toFixed ? (
+          fixedValue
+        ) : (
+          <>
+            <span>{fixedValue.split('.')[0]}</span>
+            <span
+              style={{
+                marginLeft: `-${config.sizes.value / 4}px`,
+                marginRight: `-${config.sizes.value / 4}px`,
+              }}
+            >
+              .
+            </span>
+            <span>{fixedValue.split('.')[1]}</span>
+          </>
+        )}
       </div>
       <div
         className={`${config.type}-${topic}-display-text-base ${config.type}-${topic}-display-text-label`}

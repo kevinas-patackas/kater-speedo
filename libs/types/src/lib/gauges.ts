@@ -3,13 +3,30 @@ import { SocketTopic } from './types';
 export interface GaugesConfig {
   gauges: {
     topic: SocketTopic;
-    config: CircularGaugeConfig | LinearGaugeConfig;
+    config: CircularGaugeConfig | LinearGaugeConfig | SimpleTextConfig;
     position: {
       x: number;
       y: number;
       rotation: number;
     };
   }[];
+}
+
+export interface SimpleTextConfig {
+  type: 'simple-text';
+  sizes: {
+    width: number;
+    height: number;
+    size: number;
+    prefixSize: number;
+    postfixSize: number;
+  };
+  display: {
+    horizontalAlign: 'center' | 'left' | 'right';
+    prefix: string;
+    postfix: string;
+    initialValue?: unknown;
+  };
 }
 
 export interface CircularGaugeConfig {
@@ -58,6 +75,7 @@ export interface CircularGaugeConfig {
       label: string;
       subLabel: string;
       roundingDown: number;
+      toFixed?: number;
     };
     dangerOnGood?: boolean;
   };
